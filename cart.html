@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="clothing.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">FAISAL</div>
+        <div class="user-options">
+            <span id="cartCount">
+                <img src="asset/shopping-cart.png" alt="Cart Icon" class="cart-icon" /> Cart: 0
+            </span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Your Shopping Cart</h1>
+        <div id="cartSection">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div id="cartTotal">
+            <!-- Total price will be displayed here -->
+        </div>
+        <button id="checkoutBtn" onclick="redirectToPayment()">Proceed to Payment</button>
+    </main>
+
+    <script src="cart.js"></script>
+</body>
+</html>

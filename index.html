@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Clothing Brand</title>
+    <link rel="stylesheet" href="clothing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <button class="open-sidebar" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i> Menu
+    </button>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">FAISAL</div>
+        <div class="search-bar">
+            <input id="searchInput" type="text" placeholder="Search for items, brands, and inspiration..." />
+            <button onclick="searchProducts()" class="search-button">
+                <img src="asset/loupe.png" alt="Search Icon" />
+            </button>
+        </div>
+        <div class="user-options">
+            <span id="cartCount">
+                <img src="asset/shopping-cart.png" alt="Cart Icon" class="cart-icon" onclick="redirectToCart()" /> Cart: 0
+            </span>
+        </div>
+    </nav>
+
+    <!-- Cart Modal (Initially hidden) -->
+    <aside class="sidebar" id="cartSidebar" style="display: none;">
+        <button class="close-sidebar" onclick="closeCart()">✖</button>
+        <div id="cartSection">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <button id="checkoutBtn" onclick="goToCheckout()">Proceed to Checkout</button>
+    </aside>
+
+    <!-- Sidebar with Category Filters -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-sidebar" onclick="toggleSidebar()">✖</button>
+        <ul>
+            <li onclick="filterCategory('new')">New In</li>
+            <li onclick="filterCategory('clothing')">Clothing</li>
+            <li onclick="filterCategory('shoes')">Shoes</li>
+            <li onclick="filterCategory('accessories')">Accessories</li>
+            <li onclick="filterCategory('activewear')">Activewear</li>
+            <li onclick="filterCategory('gifts')">Gifts & Living</li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <h2>Upcoming Arrivals on Friday at 1:00 PM</h2>
+        </section>
+
+        <!-- Product Section -->
+        <section class="products" id="products">
+            <!-- Products will be dynamically loaded here -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="footer-about">
+            <h3>About Us</h3>
+            <p>Your one-stop shop for vintage-inspired clothing and accessories.</p>
+        </section>
+        <section class="footer-contact">
+            <h3>Contact</h3>
+            <p>Email: support@faisalvintage.com</p>
+            <p>Phone: +123-456-7890</p>
+        </section>
+        <section class="footer-social">
+            <h3>Follow Us</h3>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </section>
+        <p>&copy; 2024 Faisal Vintage Clothing. All rights reserved.</p>
+    </footer>
+
+    <script src="clothing.js"></script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+/* General Styles */
+body {
+    font-family: "Georgia", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5dc; /* Vintage beige */
+    color: #2f2f2f; /* Dark vintage tone */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #563d2d; /* Vintage brown */
+    color: white;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.navbar .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fffaf0;
+    border-radius: 10px;
+    padding: 5px;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.navbar .search-bar input {
+    border: 2px solid #563d2d;
+    padding: 10px;
+    width: 100%;
+    font-family: inherit;
+    border-radius: 5px;
+    outline: none;
+}
+
+.navbar .search-bar input:focus {
+    border-color: #6f4e37;
+    box-shadow: 0 0 5px rgba(111, 78, 55, 0.5);
+}
+
+.navbar .search-button img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.navbar .user-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cart-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background-color: #f4e1d2; /* Light vintage pink */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease; /* Smooth transition for opening/closing */
+    z-index: 1000;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #e4d5c3;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar ul li:hover {
+    background-color: #aed2cd;
+}
+
+.sidebar ul li.active {
+    background-color: #6f4e37; /* Darker vintage brown */
+    color: white;
+    font-weight: bold;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.open-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #563d2d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: left 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.open-sidebar i {
+    font-size: 24px; /* Icon size */
+}
+
+.open-sidebar:hover {
+    background-color: #6f4e37;
+}
+
+/* Main Content */
+main {
+    margin-left: 0; /* Adjust dynamically via JavaScript */
+    transition: margin-left 0.3s ease;
+}
+
+/* When the sidebar is open */
+.sidebar-open main {
+    margin-left: 250px; /* Match the sidebar width */
+}
+
+.hero-banner {
+    text-align: center;
+    background-color: #eed9c4;
+    padding: 50px 0;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff8e7;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #563d2d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #eed9c4;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Cart and Checkout Styles */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #e4d5c3;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.cart-item p {
+    flex: 1;
+    margin: 0 10px;
+}
+
+#checkoutSection {
+    padding: 20px;
+}
+
+#checkoutSection form {
+    display: flex;
+    flex-direction: column;
+}
+
+#checkoutSection input {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#checkoutSection button {
+    padding: 10px;
+    background-color: #563d2d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#checkoutSection button:hover {
+    background-color: #6f4e37;
+}
+
+button {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* MEDIA QUERIES */
+
+/* For tablets and smaller devices */
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .navbar .search-bar {
+        max-width: 100%;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .hero-banner {
+        padding: 30px;
+        margin: 10px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .navbar .user-options {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 150px;
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .hero-banner {
+        font-size: 18px;
+        padding: 20px;
+        margin: 5px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+
+    footer a {
+        margin: 5px 0;
+    }
+}
