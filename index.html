@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothify - Modern Fashion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <h1>Clothify</h1>
+                </div>
+                
+                <nav class="header__nav" id="nav">
+                    <ul class="nav__list">
+                        <li><a href="#" class="nav__link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav__link" data-page="shop">Shop</a></li>
+                        <li><a href="#" class="nav__link" data-page="about">About</a></li>
+                        <li><a href="#" class="nav__link" data-page="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__actions">
+                    <button class="search-toggle btn--outline" id="searchToggle">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                    <button class="cart-toggle" id="cartToggle">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 13v8a2 2 0 01-2 2H9a2 2 0 01-2-2v-8"/>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="search-bar hidden" id="searchBar">
+                <input type="text" class="form-control" placeholder="Search products..." id="searchInput">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Homepage -->
+        <section class="page active" id="homePage">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero__content">
+                    <h2>Discover Your Style</h2>
+                    <p>Premium clothing for the modern individual</p>
+                    <button class="btn btn--primary btn--lg" data-page="shop">Shop Now</button>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="featured-products">
+                <div class="container">
+                    <div class="section-header">
+                        <h3>Featured Products</h3>
+                        <p>Discover our most popular items</p>
+                    </div>
+                    <div class="products-grid" id="featuredProducts">
+                        <!-- Products will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Arrivals -->
+            <section class="new-arrivals">
+                <div class="container">
+                    <div class="section-header">
+                        <h3>New Arrivals</h3>
+                        <p>Fresh styles just in</p>
+                    </div>
+                    <div class="products-grid" id="newArrivals">
+                        <!-- Products will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Snippet -->
+            <section class="about-snippet">
+                <div class="container">
+                    <div class="about-content">
+                        <h3>About Clothify</h3>
+                        <p>We believe fashion is more than just clothing—it's a form of self-expression. Our carefully curated collection brings together timeless designs with contemporary trends, ensuring you always look and feel your best.</p>
+                        <button class="btn btn--outline" data-page="about">Learn More</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter -->
+            <section class="newsletter">
+                <div class="container">
+                    <div class="newsletter-content">
+                        <h3>Stay Updated</h3>
+                        <p>Subscribe for exclusive offers and new arrivals</p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn--primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Shop Page -->
+        <section class="page hidden" id="shopPage">
+            <div class="container">
+                <div class="shop-header">
+                    <h2>Shop All Products</h2>
+                    <div class="shop-controls">
+                        <select class="form-control" id="sortSelect">
+                            <option value="default">Sort by</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="shop-content">
+                    <aside class="filters">
+                        <h4>Filters</h4>
+                        <div class="filter-group">
+                            <h5>Category</h5>
+                            <div class="filter-options" id="categoryFilters">
+                                <label><input type="checkbox" value="men"> Men's Clothing</label>
+                                <label><input type="checkbox" value="women"> Women's Clothing</label>
+                                <label><input type="checkbox" value="accessories"> Accessories</label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h5>Price Range</h5>
+                            <div class="filter-options">
+                                <label><input type="checkbox" value="0-50"> Under $50</label>
+                                <label><input type="checkbox" value="50-100"> $50 - $100</label>
+                                <label><input type="checkbox" value="100-150"> $100 - $150</label>
+                                <label><input type="checkbox" value="150+"> $150+</label>
+                            </div>
+                        </div>
+                        <button class="btn btn--outline btn--full-width" id="clearFilters">Clear Filters</button>
+                    </aside>
+                    
+                    <div class="products-section">
+                        <div class="products-grid" id="shopProducts">
+                            <!-- Products will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Detail Page -->
+        <section class="page hidden" id="productPage">
+            <div class="container">
+                <div class="product-detail" id="productDetail">
+                    <!-- Product details will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section class="page hidden" id="aboutPage">
+            <div class="container">
+                <div class="about-page">
+                    <h2>About Clothify</h2>
+                    <p>Founded with a passion for quality and style, Clothify represents the perfect blend of contemporary fashion and timeless elegance. We carefully curate each piece in our collection to ensure our customers have access to the finest clothing and accessories.</p>
+                    <p>Our commitment to sustainability and ethical practices drives every decision we make, from sourcing materials to packaging and delivery.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section class="page hidden" id="contactPage">
+            <div class="container">
+                <div class="contact-page">
+                    <h2>Contact Us</h2>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> hello@clothify.com</p>
+                        <p><strong>Phone:</strong> 1-800-CLOTHIFY</p>
+                        <p><strong>Address:</strong> 123 Fashion Ave, Style City, SC 12345</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar hidden" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="cartClose">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: $<span id="cartTotal">0.00</span></strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn--outline btn--full-width mb-8" id="continueShopping">Continue Shopping</button>
+                <button class="btn btn--primary btn--full-width" id="proceedToCheckout">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal hidden" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Checkout</h3>
+                <button class="modal-close" id="checkoutClose">×</button>
+            </div>
+            <form class="checkout-form" id="checkoutForm">
+                <div class="checkout-steps">
+                    <div class="checkout-step active" id="shippingStep">
+                        <h4>Shipping Information</h4>
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">ZIP Code</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn--primary" id="continueToPayment">Continue to Payment</button>
+                    </div>
+                    
+                    <div class="checkout-step hidden" id="paymentStep">
+                        <h4>Payment Information</h4>
+                        <div class="form-group">
+                            <label class="form-label">Card Number</label>
+                            <input type="text" class="form-control" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Expiry Date</label>
+                                <input type="text" class="form-control" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">CVV</label>
+                                <input type="text" class="form-control" placeholder="123" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cardholder Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="checkout-total">
+                            <p><strong>Order Total: $<span id="checkoutTotal">0.00</span></strong></p>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Complete Order</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal hidden" id="quickViewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Quick View</h3>
+                <button class="modal-close" id="quickViewClose">×</button>
+            </div>
+            <div class="quick-view-content" id="quickViewContent">
+                <!-- Quick view content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast hidden" id="toast">
+        <div class="toast-content" id="toastContent"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Clothify</h4>
+                    <p>Premium fashion for the modern individual</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Facebook</a>
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5>Customer Service</h5>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Policies</h5>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Clothify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay hidden" id="overlay"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
